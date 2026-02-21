@@ -1,0 +1,521 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.8;
+    color: white;
+    background-color: #1f0000;
+}
+
+.header {
+    background: black;
+    color: #ffffff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.header-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: xx-large;
+    margin: 0;
+}
+
+/* == logo ==*/
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-enlace {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logo-circular {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #640000;
+}
+
+.logo-circular:hover {
+    transform: scale(1.2);
+}
+/*== fin logo ==*/
+
+.eslogan {
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+    opacity: 0.5;
+    margin-top: 10px;
+}
+
+/*////////////////////////////////////////////////////////*/
+/* ===== MENÚ ===== */
+.menu-navegar ul {
+    list-style: none;
+    position: relative;
+}
+
+.menu-navegar ul {
+    display: flex;
+}
+
+.menu-navegar ul li {
+    position: relative; /* posiciona submenú */
+}
+
+.menu-navegar a {
+    display: block;
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.793);
+    text-decoration: none;
+}
+
+.menu-navegar a:hover {
+    background-color: #640000;
+}
+
+/*////////////////////////////////////////////////////////*/
+/* Estilo menú desplegable */
+.menu-navegar .tiene-submenu ul {
+    position: absolute;
+    top: 100%; /* debajo del elemento padre */
+    left: 0;
+    min-width: 200px;
+    background-color: #640000;
+    display: none; /* oculto x defecto */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.menu-navegar .tiene-submenu:hover ul {
+    display: block;
+}
+
+.menu-navegar .tiene-submenu ul li {
+    display: block;
+    border-bottom: 1px solid #330000;
+}
+
+.menu-navegar .tiene-submenu ul li:last-child {
+    border-bottom: none;
+}
+
+.menu-navegar .tiene-submenu ul a {
+    padding: 12px 20px;
+}
+
+.menu-navegar .tiene-submenu ul a:hover {
+    background-color: #3a0000;
+}
+
+.activo {
+    background-color: #330000e4;
+}
+
+/*////////////////////////////////////////////////////////*/
+
+.contenido {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: xx-large;
+    margin-bottom: 20px;
+    color:  rgba(255, 255, 255, 0.793);
+}
+
+h3 {
+    font-size: x-large;
+    margin: 20px 0 10px;
+    color:  rgba(255, 255, 255, 0.793);
+}
+
+blockquote {
+    border-left: 10px solid #640000;
+    padding-left: 15px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+    color:  rgba(255, 255, 255, 0.793);
+}
+
+button {
+    padding: 20px 30px;
+    background: #640000;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #1c0000;
+    cursor: pointer;
+}
+
+a button {
+    color: white;
+    font-size: large;
+    text-decoration: none;
+}
+
+button:hover {
+    background: #3a0000; 
+    transform: scale(1.04);
+}
+
+.entrada {
+    margin-bottom: 40px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pie-pagina {
+    background: black;
+    color: var(--secondary-color);
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.pie-pagina p {
+    text-align: center !important;
+}
+
+/*////////////////////////////////////////////////////////*/
+/* CARRUSEL DE VIÑETAS */
+
+#carrusel-contenedor {
+    left: 30%;
+    width: 400px;
+    height: 400px;
+    overflow: hidden; /* oculta las img que salen del marco */
+    position: relative;
+    border: 5px solid #640000;
+    border-radius: 15px;
+    box-shadow: 0 50px 30px rgba(0,0,0,0.3);
+}
+
+/* contenedor que se mueve horizontal */
+#carrusel {
+    width: 1000%; /* 10 imagenes=1000% del contenedor*/
+    height: 100%;
+    display: flex;
+    animation: deslizar 70s infinite linear;
+    animation-delay: 3s;
+}
+
+.imagen {
+    width: 10%; /* cada imagen ocupa 1/10 partes del contenedor */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.imagen img {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+}
+
+@keyframes deslizar {
+    0% {
+        transform: translateX(0);
+    }
+    /* mueve hasta que la copia de imagen1, la última, este visible */
+    100% {
+        transform: translateX(-90.9%); /* cuentas: que solo mueva 10/11 img para que no se note salto */
+    }
+}
+
+/*////////////////////////////////////////////////////////*/
+/* ==== "PENSAMIENTOS" ==== */
+.bloque-pensamientos {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 0 auto;
+}
+
+.bloque-pensamientos .ilustracion-circular {
+    flex: 0 0 200px;
+}
+
+.contenido-entradas{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.bloque-entrada{
+    width: 200px;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bloque-entrada img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.bloque-entrada button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.bloque-entrada p {
+    text-align: center !important;
+}
+
+.ilustracion-circular{
+    width: 200px;
+    animation: giratoria 7s infinite linear;
+}
+
+.ilustracion-circular:hover{
+    animation: giratoria 7s infinite linear reverse;
+}
+
+@keyframes giratoria {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180 deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#menu-flechas {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.desplazar-entrada {
+    text-decoration: none;
+    font-size: 80px;
+    color: rgb(241, 212, 149);
+    line-height: 1; /* evita altura extra por el texto */
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+.desplazar-entrada:hover {
+    color: #da190b;
+    transform: scale(1.1); 
+}
+
+/*////////////////////////////////////////////////////////*/
+/* ==== "SOBRE 1984" ==== */
+.acceso-dir-pens {
+    color: rgb(241, 212, 149);
+    font-weight: bolder;
+}
+.acceso-dir-pens:hover{
+    color: #da190b;
+}
+
+.sobre-1984 {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* espacio texto-imagen */
+    margin: 0 auto;
+}
+
+.sobre-1984 .contenedor-libro {
+    flex: 0 0 300px; /* ancho fijo portada */
+}
+
+.contenedor-libro {
+    width: 328px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden; /* para ocultar el zoom excesivo */
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.libro-zoom {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom_al_ojo 8s infinite ease-in-out;
+    transform-origin: center 85%; 
+}
+
+@keyframes zoom_al_ojo {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.8); /* Zoom al ojo */
+    }
+    50% {
+        transform: scale(1.8); /* Mantiene el zoom */
+    }
+    75% {
+        transform: scale(1); /* Vuelve */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*////////////////////////////////////////////////////////*/
+/* ==== "FORMULARIO" ==== */
+#formulario-contacto {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 4px solid #640000;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.campo input[type="text"], .campo input[type="email"],
+.campo select, .campo textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #da190b;
+    border-radius: 4px;
+}
+
+.checkbox-label, .radio-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.boton-submit, .boton-reset {
+    padding: 20px 30px;
+    background: #640000;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: large;
+}
+
+
+.boton-submit:hover {
+    background-color: #45a049;
+    transform: scale(1.04);
+}
+.boton-reset:hover {
+    background-color: #da190b;
+    transform: scale(1.04);
+}
+
+/*////////////////////////////////////////*/
+/* ==== DISEÑO RESPONSIVE ==== */
+@media (max-width: 1300px) {
+    .header {
+        position: static;
+    }
+    
+    .menu-navegar ul {
+        display: block;
+    }
+    
+    .menu-navegar li {
+        margin: 5px;
+    }
+    
+    .contenido {
+        padding: 0 35px;
+    }
+
+    .bloque-entrada{
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px) { /*para la correcta visualizacion de la portada*/
+    .sobre-1984, .bloque-pensamientos{
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sobre-1984 .contenedor-libro, .bloque-pensamientos .ilustracion-circular {
+        flex: 0 0 auto;
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        position: static;
+    }
+    
+    .menu-navegar a {
+        padding: 5px 10px;
+    }
+
+    #carrusel-contenedor {
+    left: 0%;
+    }
+
+    .desplazar-entrada {
+        font-size: 60px;
+    }
+    
+    #menu-flechas {
+        gap: 20px;
+    }
+}
+
