@@ -227,7 +227,7 @@ img {
     width: 1000%; /* 10 imagenes=1000% del contenedor*/
     height: 100%;
     display: flex;
-    animation: deslizar 70s infinite linear;
+    animation: deslizar 90s infinite linear;
     animation-delay: 3s;
 }
 
