@@ -212,7 +212,7 @@ img {
 /* CARRUSEL DE VIÑETAS */
 
 #carrusel-contenedor {
-    left: 30%;
+    margin: 0 auto;
     width: 400px;
     height: 400px;
     overflow: hidden; /* oculta las img que salen del marco */
@@ -507,7 +507,7 @@ img {
     }
 
     #carrusel-contenedor {
-    left: 0%;
+        width: 95%;
     }
 
     .desplazar-entrada {
